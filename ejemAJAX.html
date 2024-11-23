@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud AJAX con JavaScript</title>
+
+    <!-- Vincular archivo CSS -->
+    <link rel="stylesheet" href="styyy.css">
+
+    <!-- Enlace para regresar al inicio -->
+    <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+</head>
+<body>
+
+    <h2>Ejemplo de Solicitud AJAX con JavaScript</h2>
+    
+    <p>Para crear una solicitud AJAX completamente con JavaScript, sin necesidad de usar librerías adicionales, seguimos estos pasos:</p>
+    
+    <p>1. **Crear el objeto XMLHttpRequest**: Este objeto será el encargado de realizar la solicitud asíncrona al servidor. Se utiliza para hacer peticiones HTTP y recibir respuestas sin necesidad de recargar la página.</p>
+    
+    <p>2. **Configurar el evento de cambio de estado de la solicitud**: Cada vez que el estado de la solicitud cambie, debemos ejecutar una función para manejar la respuesta. Usamos el evento <code>onreadystatechange</code> para ello.</p>
+    
+    <p>3. **Verificar el estado de la solicitud**: La solicitud estará lista cuando <code>readyState</code> sea 4 (completada) y <code>status</code> sea 200 (respuesta exitosa del servidor). Si estas condiciones se cumplen, procesamos la respuesta.</p>
+    
+    <p>4. **Abrir la solicitud**: Usamos el método <code>open()</code> para configurar el tipo de solicitud (GET, POST, etc.) y la URL a la que se enviará.</p>
+    
+    <p>5. **Enviar la solicitud**: Finalmente, enviamos la solicitud con el método <code>send()</code>.</p>
+    
+    <p>6. **Agregar un evento para ejecutar la solicitud**: Usamos un botón en la página que, al hacer clic, ejecutará la solicitud.</p>
+    
+    <p>7. **Mostrar la respuesta en la página**: Si queremos que la respuesta se muestre en la página, podemos insertarla en un elemento de la página, como un <code>div</code>.</p>
+
+    <p>A continuación te muestro el código de ejemplo:</p>
+
+    <pre><code>
+        // Crear un objeto XMLHttpRequest para la solicitud AJAX
+        const xhr = new XMLHttpRequest();
+
+        // Configurar el evento cuando el estado de la solicitud cambie
+        xhr.onreadystatechange = function() {
+            // Verificar si la solicitud se ha completado correctamente
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Mostrar la respuesta en la consola
+                console.log(xhr.responseText);
+                
+                // Insertar la respuesta en el div de la página
+                document.getElementById("responseContainer").innerHTML = xhr.responseText;
+            }
+        };
+
+        // Obtener el botón y agregar un evento para hacer la solicitud
+        document.getElementById("loadDataBtn").addEventListener("click", function() {
+            // Especificar el tipo de solicitud (GET) y la URL
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            
+            // Enviar la solicitud al servidor
+            xhr.send();
+        });
+    </code></pre>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w8q0C2Fb-Gg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</body>
+</html>

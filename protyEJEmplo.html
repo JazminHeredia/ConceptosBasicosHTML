@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipos en JavaScript</title>
+</head>
+
+ <!-- Vincular archivo CSS -->
+ <link rel="stylesheet" href="styyy.css">
+
+ <!-- Enlace para regresar al inicio -->
+ <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+<body>
+    <h1>Prototipos (Prototypes)</h1>
+    <p>
+        JavaScript es un lenguaje basado en prototipos, por lo tanto, entender el objeto <strong>prototype</strong> 
+        es uno de los conceptos más importantes que los profesionales de JavaScript necesitan saber. Este artículo 
+        te dará una breve descripción del objeto <strong>prototype</strong> a través de varios ejemplos. Antes de leer 
+        este artículo, deberás tener un entendimiento básico de la referencia <strong>this</strong> en JavaScript.
+    </p>
+
+    <h2>Objeto prototype</h2>
+    <p>
+        En honor a la claridad, vamos a examinar el siguiente ejemplo:
+    </p>
+    <pre>
+        <code>
+function Punto2D(x, y) {
+  this.x = x;
+  this.y = y;
+}
+        </code>
+    </pre>
+    <p>
+        Al declararse la función <code>Punto2D</code>, una propiedad predeterminada llamada 
+        <code>prototype</code> será creada para ella (ten en cuenta que, en JavaScript, una función es también un 
+        objeto). La propiedad <code>prototype</code> es un objeto que contiene una propiedad <code>constructor</code> 
+        y su valor es la función <code>Punto2D</code>: <code>Punto2D.prototype.constructor = Punto2D</code>. 
+    </p>
+    <p>
+        Cuando llamas a <code>Punto2D</code> con la palabra reservada <code>new</code>, los objetos recién creados 
+        heredarán todas las propiedades de <code>Punto2D.prototype</code>. Para verificar esto, puedes agregar un método llamado 
+        <code>mover</code> en <code>Punto2D.prototype</code> de la siguiente manera:
+    </p>
+    <pre>
+        <code>
+Punto2D.prototype.mover  = function(dx, dy) {
+  this.x += dx;
+  this.y += dy;
+}
+
+var p1 = new Point2D(1, 2);
+p1.mover(3, 4);
+console.log(p1.x); // 4
+console.log(p1.y); // 6
+        </code>
+    </pre>
+    <p>
+        <code>Point2D.prototype</code> es llamado objeto prototipo o prototipo del objeto <code>p1</code> y de cualquier otro objeto 
+        creado con la sintaxis <code>new Point2D(...)</code>. Puedes agregar tantas propiedades al objeto <code>Point2D.prototype</code> 
+        como quieras. Lo que suele hacerse es declarar métodos en <code>Point2D.prototype</code> y otras propiedades se declararán 
+        en la función constructora.
+    </p>
+    <p>
+        Los objetos integrados en JavaScript se construyen de manera similar. Por ejemplo:
+    </p>
+    <ul>
+        <li>El prototipo de los objetos creados con la sintaxis <code>new Object()</code> o <code>{}</code> es <code>Object.prototype</code>.</li>
+        <li>El prototipo de los arreglos creados con la sintaxis <code>new Array()</code> o <code>[]</code> es <code>Array.prototype</code>.</li>
+        <li>Y es igual con otros objetos integrados como <code>Date</code> y <code>RegExp</code>.</li>
+    </ul>
+    <p>
+        <code>Object.prototype</code> es heredado por todos los objetos y no tiene prototipo (su prototipo es <code>null</code>).
+    </p>
+
+    <h2>Cadena de prototipos</h2>
+    <p>
+        El mecanismo de la cadena del prototipo es simple: cuando accede a una propiedad <code>p</code> en el objeto 
+        <code>obj</code>, el motor de JavaScript buscará esta propiedad dentro del objeto <code>obj</code>. 
+        Si el motor falla en la búsqueda, continúa buscando en el prototipo de objeto <code>obj</code> y así sucesivamente hasta llegar a 
+        <code>Object.prototype</code>. Si finalizada la búsqueda no se ha encontrado nada, el resultado será <code>undefined</code>.
+    </p>
+    <pre>
+        <code>
+var obj1 = {
+  a: 1,
+  b: 2
+};
+
+var obj2 = Object.create(obj1);
+obj2.a = 2;
+
+console.log(obj2.a); // 2
+console.log(obj2.b); // 2
+console.log(obj2.c); // undefined
+        </code>
+    </pre>
+    <p>
+        En el fragmento de código anterior, la declaración <code>var obj2 = Object.create(obj1)</code> creará el objeto <code>obj2</code> con el 
+        objeto prototipo <code>obj1</code>. En otras palabras, <code>obj1</code> se convierte en el prototipo de <code>obj2</code> en lugar de 
+        <code>Object.prototype</code> por defecto.
+    </p>
+
+    <h2>Clases</h2>
+    <p>
+        En ES2016, ahora podemos usar la palabra clave <code>Class</code>, así como los métodos mencionados anteriormente 
+        para manipular el <code>prototype</code>. Las clases de JavaScript son atractivas para los desarrolladores con experiencia 
+        en programación orientada a objetos, pero esencialmente hacen lo mismo que el anterior.
+    </p>
+    <pre>
+        <code>
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+
+  get area() {
+    return this.calcArea();
+  }
+
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+
+const square = new Rectangle(10, 10);
+console.log(square.area); // 100
+        </code>
+    </pre>
+    <p>
+        Esto es básicamente lo mismo que:
+    </p>
+    <pre>
+        <code>
+function Rectangle(height, width) {
+  this.height = height;
+  this.width = width;
+}
+
+Rectangle.prototype.calcArea = function calcArea() {
+  return this.height * this.width;
+};
+        </code>
+    </pre>
+    <p>
+        Los métodos <code>getter</code> y <code>setter</code> en las clases vinculan una propiedad <code>Object</code> a una función 
+        que será llamada cuando se busque esa propiedad. Esto es solo azúcar sintáctico para ayudar a que sea más fácil buscar o 
+        establecer propiedades.
+    </p>
+</body>
+</html>

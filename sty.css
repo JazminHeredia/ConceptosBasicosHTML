@@ -1,0 +1,82 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el encabezado */
+header {
+    background-color: #3700b3;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la sección principal */
+section {
+    margin: 20px;
+}
+
+footer {
+    background-color: #3700b3;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+    margin-top: auto; /* Esto hace que el footer siempre esté al fondo */
+}
+
+
+/* Estilo para las fuentes de información */
+.referencias {
+    margin-top: 30px;
+}
+
+.referencias h3 {
+    color: #000c78;
+}
+
+.referencias ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.referencias li {
+    margin-bottom: 10px;
+}
+/* Estilo para el botón de regreso */
+.boton-regresar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00022f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.boton-regresar:hover {
+    background-color: #07173a;
+}

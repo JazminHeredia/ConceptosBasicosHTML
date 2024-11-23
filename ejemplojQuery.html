@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="styyy.css">
+    <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos prácticos del uso de JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .block, .buttons {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        #cont1, #cont2, #cont3, #cont4 {
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .block {
+            cursor: pointer;
+        }
+        .buttons button {
+            display: block;
+            width: 90%;
+            margin: 5px auto;
+            padding: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <h1>Explicaciones del Código jQuery</h1>
+    
+        <p><strong>Ocultar bloque:</strong> Al hacer clic en el botón con ID "c1", se oculta el bloque con el ID "cont1" usando <code>hide(1500)</code>, que aplica una animación de 1500 milisegundos.</p>
+    
+        <p><strong>Mostrar bloque:</strong> Al hacer clic en el botón con ID "c2", se muestra el bloque "cont1" utilizando <code>show("slow")</code>, que lo despliega lentamente.</p>
+    
+        <p><strong>Ocultar/Mostrar bloque:</strong> El botón con ID "c1b" alterna entre ocultar y mostrar el bloque "cont1" con una animación de 1500 milisegundos, gracias al método <code>toggle()</code>.</p>
+    
+        <p><strong>Cambiar tamaño:</strong> El botón con ID "c3" usa <code>animate()</code> para cambiar el tamaño del texto, el ancho y el relleno del bloque "cont1" en 2500 milisegundos.</p>
+    
+        <p><strong>Ocultar con FadeOut:</strong> El botón con ID "c4" aplica un efecto de desvanecimiento al ocultar el bloque "cont1" con <code>fadeToggle(3000)</code>, en 3000 milisegundos.</p>
+    
+        <p><strong>Mostrar con FadeIn:</strong> El botón con ID "c5" utiliza <code>fadeIn(3000)</code> para mostrar el bloque "cont1" con un efecto de desvanecimiento.</p>
+    
+        <p><strong>Mover el bloque:</strong> El botón con ID "c6" mueve y transforma el bloque "cont1" mediante una serie de animaciones, cambiando opacidad, posición, tamaño y más.</p>
+    
+        <p><strong>Cambiar estilo CSS:</strong> Al hacer clic en el botón con ID "c7", se aplican nuevos estilos CSS al bloque "cont1" usando <code>css()</code>, como bordes, colores y fondo.</p>
+    
+        <p><strong>Ocultar y mostrar al hacer clic:</strong> Al hacer clic en el bloque con ID "cont2", este se oculta y luego reaparece con un retraso de 1500 milisegundos.</p>
+    
+        <p><strong>Fondo amarillo:</strong> Cuando pasas el cursor sobre un elemento con la clase "yellow", se aplica una clase "hover" que cambia su estilo temporalmente.</p>
+    
+        <p><strong>Contador de caracteres:</strong> En un área de texto, se cuenta el número de caracteres introducidos usando <code>keyup</code> y <code>keydown</code>, actualizando el resultado en un elemento con el ID "characters".</p>
+    
+        <p><strong>Cargar contenido externo:</strong> Al hacer clic en el botón con ID "c8", se carga contenido externo dentro del bloque con el ID "noticias" utilizando el método <code>load()</code>.</p>
+    
+        <p><strong>Ocultar noticias:</strong> El botón con ID "c9" oculta el bloque "noticias" con una animación de 1500 milisegundos.</p>
+    
+        <p><strong>GET (ver código fuente):</strong> Al hacer clic en el botón con ID "c10", se realiza una solicitud HTTP GET para obtener datos de una URL y se muestra la información y el estado en un cuadro de alerta.</p>
+    
+        <p><strong>Mostrar versión de jQuery:</strong> El botón con ID "c11" muestra en un cuadro de alerta la versión de jQuery utilizada en la página.</p>
+    
+        <p><strong>Copiar texto del H1:</strong> El botón con ID "c12" copia el texto del encabezado <code>&lt;h1&gt;</code> y lo muestra en el bloque "cont3".</p>
+    
+        <p><strong>Copiar HTML del H1:</strong> El botón con ID "c13" copia el HTML completo del encabezado <code>&lt;h1&gt;</code> y lo pega en el bloque "cont4".</p>
+    </body>
+    <h1>Ejemplos prácticos del uso de JQuery</h1>
+    <div class="container">
+        <div id="cont1" class="block">Bloque 1 - Contenido ocultable y animado</div>
+        <div id="cont2" class="block">Bloque 2 - Toca para ocultarme</div>
+        <div id="cont3" class="block">Bloque 3 - Texto copiado aquí</div>
+        <div id="cont4" class="block">Bloque 4 - HTML copiado aquí</div>
+    </div>
+
+    
+
+    <div id="noticias" class="block">Bloque de noticias</div>
+
+    <script>
+        // Código JQuery
+        $("#c1").click(function() { $("#cont1").hide(1500); });
+        $("#c2").click(function() { $("#cont1").show("slow"); });
+        $("#c1b").click(function() { $("#cont1").toggle(1500); });
+        $("#c3").click(function() { $("#cont1").animate({ fontSize: '2.4em', width: 400, padding: 24 }, 2500); });
+        $("#c4").click(function() { $("#cont1").fadeToggle(3000); });
+        $("#c5").click(function() { $("#cont1").fadeIn(3000); });
+        $("#c6").click(function() {
+            $("#cont1").animate({ opacity: "0.1", left: "+=400", fontSize: '1em', width: "200" }, 1200)
+                .animate({ opacity: "0.4", top: "+=160", height: "20", width: "80", fontSize: '0.5em' }, "slow")
+                .animate({ opacity: "1", left: "0", width: "260" }, "slow")
+                .animate({ top: "0", width: "260", fontSize: '1.2em' }, "fast")
+                .slideUp()
+                .slideDown(1800);
+        });
+        $("#c7").click(function() { $("#cont1").css({ 'border': '4px solid #b7e5ff', 'color': '#cc3333', 'font-weight': 'bold', 'background-color': '#ffffff' }); });
+        $("#cont2").click(function() { $(this).hide().delay(1500).show(1500); });
+        $("#c8").click(function() { $("#noticias").load("../facebook/problemas-simbolos.php"); });
+        $("#c9").click(function() { $("#noticias").hide(1500); });
+        $("#c10").click(function() {
+            $.get('https://norfipc.com/codigos/jquery-ejemplos-practicos-usar-paginas-web.php', function(data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+        $("#c11").click(function() {
+            var version = $().jquery;
+            alert("Estás usando la versión: " + version + " de JQuery");
+        });
+        $("#c12").click(function() { var texto1 = $("h1").text(); $("#cont3").text(texto1); });
+        $("#c13").click(function() { var html1 = $("h1").clone(); $("#cont4").html(html1); });
+    </script>
+</body>
+</html>

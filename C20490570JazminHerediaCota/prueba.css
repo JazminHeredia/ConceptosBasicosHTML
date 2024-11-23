@@ -1,0 +1,68 @@
+.header {
+    background-color: #ff69b4; /* Color rosita */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav-bar {
+    background-color: purple; /* Fondo morado para la barra */
+    padding: 10px;
+    display: flex;
+    justify-content: space-around; /* Espaciado uniforme entre los enlaces */
+    margin-top: 10px; /* Espacio entre la imagen y la barra */
+}
+
+.right-section {
+    flex: 1; /* Ocupa menos espacio, será la barra verde */
+    background-color: rgb(236, 128, 223); /* Fondo verde */
+    color: white;
+    padding: 20px;
+    height: auto; /* Altura automática según el contenido */
+}
+
+.nav-bar a {
+    color: white; /* Color de texto blanco */
+    text-decoration: none; /* Sin subrayado */
+}
+
+
+
+.main-content {
+    display: flex; 
+    padding: 20px;
+}
+
+.left-section {
+    flex: 3; 
+    padding: 20px;
+}
+
+.footer {
+    background-color: purple; 
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+.section-title {
+    color: purple;
+    margin-top: 20px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    margin: 10px 0;
+}
+
+p {
+    margin: 5px 0;
+}

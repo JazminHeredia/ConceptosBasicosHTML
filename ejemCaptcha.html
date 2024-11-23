@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="stylesheet" href="styyy.css">
+    <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementación CAPTCHA</title>
+    <!-- Cargar la API de reCAPTCHA de Google -->
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+    <div class="captcha-container">
+        <h2>¿Cómo poner CAPTCHA en HTML?</h2>
+        <p>Para añadir un CAPTCHA a tu formulario HTML, puedes utilizar la opción de <strong>reCAPTCHA</strong> de Google.</p>
+        
+        <p>Primero, debes registrar la URL de tu sitio web en Google reCAPTCHA y obtener las claves necesarias. Luego, debes copiar y pegar el siguiente código dentro del <strong>head</strong> de tu documento HTML para cargar la API de reCAPTCHA:</p>
+        
+        <pre><code>&lt;script async src="https://www.google.com/recaptcha/api.js"&gt;&lt;/script&gt;</code></pre>
+
+        <p>Después, dentro de tu formulario, debes insertar el siguiente código:</p>
+        
+        <pre><code>&lt;div id="recaptcha" class="g-recaptcha" data-sitekey="TU_CLAVE_DEL_SITIO"&gt;&lt;/div&gt;</code></pre>
+        
+        <p><strong>Recuerda reemplazar <code>TU_CLAVE_DEL_SITIO</code> con la clave del sitio que obtuviste de Google reCAPTCHA.</strong></p>
+
+        <!-- Formulario con reCAPTCHA -->
+        <form action="verificar_captcha.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+
+            <br><br>
+
+            <!-- Widget de reCAPTCHA -->
+            <div id="recaptcha" class="g-recaptcha" data-sitekey="TU_CLAVE_DEL_SITIO"></div>
+
+            <br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/yALe9X3z7PM" frameborder="0" allowfullscreen></iframe>
+
+        <div id="captchaResult"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Un lenguaje basado en prototipos?</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+    <header>
+        <h1>¿Un lenguaje basado en prototipos?</h1>
+        <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+    </header>
+
+    <section>
+        <h2>JavaScript y los Prototipos</h2>
+        <p>JavaScript es frecuentemente descrito como un lenguaje basado en prototipos debido a cómo maneja la herencia. En lugar de utilizar clases como otros lenguajes, JavaScript permite que los objetos tengan un "prototipo", que actúa como una plantilla para heredar métodos y propiedades. Esto permite que los objetos compartan comportamiento sin necesidad de definir todo desde cero para cada uno.</p>
+    </section>
+
+    <section>
+        <h2>La Cadena de Prototipos</h2>
+        <p>En JavaScript, los objetos pueden tener otro objeto como su prototipo. Este objeto prototipo, a su vez, puede tener otro objeto prototipo, y así sucesivamente. Este concepto es conocido como la <strong>cadena de prototipos</strong>. Gracias a esto, los objetos no solo tienen acceso a sus propios métodos y propiedades, sino también a los de sus prototipos.</p>
+    </section>
+
+    <section>
+        <h2>La Propiedad <code>prototype</code></h2>
+        <p>El concepto central de la herencia basada en prototipos en JavaScript es la propiedad <code>prototype</code>. Cada función constructora (es decir, cada tipo de objeto) tiene un objeto <code>prototype</code> asociado, en el que se definen métodos y propiedades. Las instancias de los objetos creados por esa función constructora heredan de este prototipo.</p>
+        <p>Cuando se intenta acceder a una propiedad o método de un objeto, JavaScript primero busca en el objeto mismo. Si no encuentra la propiedad o el método allí, busca en el prototipo del objeto, luego en el prototipo de ese prototipo, y sigue hacia arriba en la cadena hasta que encuentre la propiedad o hasta que llegue al final de la cadena (un prototipo nulo).</p>
+    </section>
+
+    <section>
+        <h2>La Propiedad <code>__proto__</code></h2>
+        <p>El enlace entre un objeto y su prototipo se realiza a través de la propiedad <code>__proto__</code>. Esta propiedad indica a qué prototipo está vinculado el objeto. A través de <code>Object.getPrototypeOf(obj)</code> también se puede acceder al prototipo de un objeto de manera más formal.</p>
+    </section>
+
+    <section>
+        <h2>Resumen</h2>
+        <ul>
+            <li>JavaScript utiliza un sistema basado en prototipos para la herencia.</li>
+            <li>Los objetos pueden heredar métodos y propiedades de otros objetos a través de una cadena de prototipos.</li>
+            <li>Las funciones constructoras tienen una propiedad <code>prototype</code> que define los métodos y propiedades heredados por sus instancias.</li>
+            <li>El prototipo de un objeto puede accederse mediante la propiedad <code>__proto__</code> o usando <code>Object.getPrototypeOf(obj)</code>.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2024 Explicación sobre Prototipos - Jazmin Heredia Cota</p>
+    </footer>
+</body>
+</html>

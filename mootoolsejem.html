@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Mootools</title>
+    <link rel="stylesheet" href="styyy.css">
+    <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+
+</head>
+<body>
+    <h1>Ejemplo sencillo de Mootools</h1>
+    
+    <p>
+        Un primer ejemplo de página web que utiliza Mootools para hacer un efecto sencillo que nos permita conocer el framework sin ningún conocimiento previo del sistema.
+    </p>
+    <p>
+        Como había dicho en la introducción de este manual de Mootools, el uso del framework puede resultar difícil para las personas que nunca han trabajado con él o con otro framework Javascript. Por eso tiene sentido hacer un ejemplo inicial muy simple para iniciarse. Este ejemplo realmente no sirve para nada, simplemente para que veamos la facilidad con la que se puede utilizar Mootools para realizar código Javascript compatible con todos los navegadores más habituales.
+    </p>
+    <p>
+        No obstante, hay que decir que para poder utilizar Mootools debemos tener antes un conocimiento medio o avanzado de Javascript, porque realmente lo que estamos haciendo en estos ejemplos es programar en Javascript funcionalidades para páginas web. En DesarrolloWeb.com tenemos varios manuales de Javascript que nos van a servir para obtener las bases sobre el lenguaje y hasta conocimientos avanzados. Los podemos ver en la sección de Javascript a fondo.
+    </p>
+    <p>
+        Además, para quien no sepa qué es Mootools y dónde descargarlo, será necesario que comience por el principio del manual sobre Mootools.
+    </p>
+    <p>
+        En este ejemplo sólo tenemos que conocer unas cuantas cosas de Mootools.
+    </p>
+    
+    <h2>Incluir el código de Mootools</h2>
+    <p>
+        Para empezar, hay que incluir el código Javascript de las librerías de Mootools. Esto se hace incluyendo el archivo externo de código Javascript con las librerías del framework, que hemos descargado de la página de Mootools.
+    </p>
+    <pre>
+        <code>
+        &lt;script src="mootools -1.11.js" type="text/javascript"&gt;&lt;/script&gt;
+        </code>
+    </pre>
+
+    <h2>La función $()</h2>
+    <p>
+        En Mootools utilizamos la función <code>$()</code> para recibir un objeto con un elemento de la página. <code>$()</code> recibe como parámetro el identificador del elemento, que se ha indicado con el atributo <code>id</code> de la etiqueta HTML de lo que queremos recibir.
+    </p>
+    <p>
+        Las librerías de <strong>Element.js</strong>, dentro del paquete llamado <em>NATIVE</em>, contienen varios métodos que podemos invocar sobre los objetos <code>element</code>, para realizar cosas con ellos, analizarlos o alterar su estado. Nosotros vamos a utilizar dos métodos de Element:
+    </p>
+    <h3>Método setOpacity()</h3>
+    <p>
+        Es para alterar la transparencia de un elemento. Recibe un valor entre 0 y 1 para definir cuánto de opaco o transparente es un elemento. El valor 0 es transparente y el valor 1 es completamente opaco.
+    </p>
+    <h3>Método setStyle()</h3>
+    <p>
+        Para alterar cualquier estilo CSS del elemento. Recibe dos parámetros: el primero, el nombre del estilo; y el segundo, el valor del estilo.
+    </p>
+    
+    <h2>El ejemplo</h2>
+    <p>
+        Con estos datos, ya conocemos todo lo que debemos saber de Mootools para entender el siguiente ejemplo.
+    </p>
+    <pre>
+        <code>
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=ISO-8859-1"&gt;
+            &lt;title&gt;Ejemplo básico con Mootools&lt;/title&gt;
+            &lt;script src="mootools-comprimido-1.11.js" type="text/javascript"&gt;&lt;/script&gt;
+            &lt;script&gt;
+            window.addEvent('domready', function(){
+                opaco_actual = 0;
+                capa_transicion = null;
+                cargado = true;
+            });
+            &lt;/script&gt;   
+        &lt;/head&gt;
+
+        &lt;body&gt;
+
+        &lt;div id="texto_presentacion"&gt;Hola, esto es un texto para hacer una prueba con Mootools. Simplemente estoy alterando propiedades del DIV donde está este texto.&lt;/div&gt;
+        &lt;br&gt;
+
+        &lt;form&gt;
+        &lt;input type="button" value="Opacidad 0%" onclick="$('texto_presentacion').setOpacity(0);"&gt;
+        &lt;input type="button" value="Opacidad 25%" onclick="$('texto_presentacion').setOpacity(.25);"&gt;
+        &lt;input type="button" value="Opacidad 50%" onclick="$('texto_presentacion').setOpacity(.5);"&gt;
+        &lt;input type="button" value="Opacidad 75%" onclick="$('texto_presentacion').setOpacity(.75);"&gt;
+        &lt;input type="button" value="Opacidad 100%" onclick="$('texto_presentacion').setOpacity(1);"&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;input type="button" value="Tamaño 200px" onclick="$('texto_presentacion').setStyle('width', '200px');"&gt;
+        &lt;input type="button" value="Pon borde" onclick="$('texto_presentacion').setStyle('border', '1px solid #ff0000');"&gt;
+        &lt;input type="button" value="Tamaño 50%" onclick="$('texto_presentacion').setStyle('width', '50%');"&gt;
+        &lt;/form&gt;
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </code>
+    </pre>
+
+    <p>
+        Este código es un ejemplo simple para alterar propiedades de un elemento utilizando Mootools. ¡Espero que lo encuentres útil!
+    </p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanismos de seguridad en formularios</title>
+    <link rel="stylesheet" href="sty.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Mecanismos de seguridad en formularios.</h1>
+        <a href="index.html" class="boton-regresar">Regresar a Inicio</a>
+    </header>
+
+    <section>
+        <h2>Sistemas de seguridad para formularios web</h2>
+        <p>Los formularios son una de las mayores fuentes de problemas de seguridad y spam en sitios y aplicaciones web, ya que son la principal manera con la que los usuarios podemos ingresar datos en una aplicación. Un formulario poco seguro puede producir problemas diversos, ya sea durante el procesamiento de los datos enviados, mediante la incorporación de spam al sitio web o la explotación de los sistemas de envío de email del servidor, por poner varios ejemplos.</p>
+
+        <p>Por ese motivo es importante prestarles especial atención a fin de mitigar los problemas más habituales. Existen diversos sistemas que podemos usar para aumentar la seguridad en formularios, que vamos a analizar a continuación.</p>
+
+        <h3>Captchas</h3>
+        <p>Una de las mayores problemáticas de los formularios es que los robots se dediquen a enviar información, buscando o explotando vulnerabilidades detectadas. Es por ello fundamental que nos aseguremos de que son realmente humanos los que están interactuando con nuestros formularios. Para ello se puede incorporar un sistema de captcha adecuado. Existen diversas alternativas en el mercado, pero igual que aparecen desaparecen. Una que perdura y en la que podemos confiar es reCaptcha, un servicio ofrecido por Google. Básicamente es un sistema muy amistoso para el usuario que muchas veces se valida simplemente pulsando un checkbox. Seguro que hemos visto decenas de veces la interfaz de reCaptcha en los sitios web. Tiene un aspecto como este:</p>
+
+        <img src="https://www.arsys.es/blog/wp-content/uploads/2020/12/recaptcha.jpg" alt="Ejemplo de reCaptcha" width="300">
+
+        <p>El sistema de seguridad para formularios reCaptcha es gratuito en la mayoría de los casos. Requiere registro para la obtención de un par de claves, la de sitio web y la clave secreta. Esto lo podemos hacer fácilmente desde la sección «Admin Console» de la página de reCaptcha. Una vez registrados en el servicio y habiendo dado de alta el sitio web, tenemos que realizar la programación que nos permita integrarlo al sistema, pero en ocasiones suele ser tan sencillo como configurar el correspondiente plugin en nuestro CMS.</p>
+
+        <p>Existen decenas de plugins para agregar reCaptcha a WordPress. Uno de los que tiene más instalaciones y está mejor valorado es Advanced noCaptcha & invisible Captcha. Si desarrollamos con PHP también es perfectamente posible integrar reCaptcha a mano, pero si nos basamos en este package lo tendremos mucho más fácil: No-Captcha reCaptcha.</p>
+
+        <h3>Evitar ataques CSRF</h3>
+        <p>Otro de los males de los formularios son los ataques CSRF (del inglés Cross-site request forgery), que se producen al realizarse solicitudes POST desde otros dominios que los ciberdelincuentes aprovechan para apoderarse de sesiones abiertas sobre los sitios atacados. CSRF se basa generalmente en un token, que simplemente se valida antes de aceptar el procesamiento de la información que viene mediante solicitudes POST. La mayoría de los frameworks (entre ellos Laravel o Symfony) incluyen por defecto protección anti CSRF, una razón más para usarlos.</p>
+
+        <p>WordPress cuenta también con protección frente a este tipo de ataques, pero es importante que tu plugin la incluya, pues si no fuera así tus formularios estarían desprotegidos por esta vulnerabilidad habitual. Para mejorar la seguridad de los formularios de contacto recomendamos usar algún plugin conocido, que asegure mejores estándares de seguridad, como Contact Form 7.</p>
+
+        <p>Si desarrollas en PHP y no tienes demasiada soltura para asegurar la seguridad de los formularios te recomendamos confiar en un package de software libre que te aporte una base de código robusta. En este sentido una buena herramienta de generación de formularios, tanto para la parte del cliente como la parte del servidor, es Nette Forms.</p>
+
+        <h3>Validación y sanitización</h3>
+        <p>Por supuesto, si eres tú quien realiza la programación del sitio, es importante que tengas en cuenta los procedimientos necesarios para asegurar que la información que recibes es correcta y no presenta problemas. Para ello es importante validar y sanitizar. PHP ofrece una serie de filtros para sanitizar los datos llegados por los métodos POST o GET. Puedes consultarlos en la página de filtros de saneamiento. Consulta también la página de filtros de validación.</p>
+
+        <p>Si programamos bajo WordPress, el Codex ofrece una página completa dedicada a las funciones de filtrado y sanitización.</p>
+    </section>
+
+    <footer>
+        <p>© 2024 Mecanismos de seguridad en formularios - Jazmin Heredia Cota</p>
+    </footer>
+</body>
+</html>
